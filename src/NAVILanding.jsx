@@ -40,7 +40,7 @@ export default function NAVILanding() {
   return (
     <div className="min-h-screen w-full overflow-x-clip font-['Inter','Segoe_UI',sans-serif] text-zinc-900">
       <main>
-        <div className="relative overflow-hidden bg-[url('/hero-bg-gradient.png')] bg-cover bg-no-repeat [background-position:center_28px] sm:[background-position:center_2px] lg:[background-position:center_-28px] xl:[background-position:center_-122px]">
+        <div className="relative overflow-hidden bg-[url('/hero-bg-gradient.png')] bg-cover bg-no-repeat [background-position:center_28px] sm:[background-position:center_2px] lg:[background-position:center_-128px] xl:[background-position:center_-122px]">
           <div
             aria-hidden="true"
             className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(245,247,255,0.08)_0%,rgba(245,246,251,0.28)_58%,rgba(245,245,247,0.74)_100%)] md:bg-none"
