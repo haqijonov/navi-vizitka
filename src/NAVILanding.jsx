@@ -6,7 +6,12 @@ const Container = ({ className = "", children }) => (
   <div className={`${containerBase} ${className}`.trim()}>{children}</div>
 );
 
-const navItems = ["Uy", "Xaqimizda", "Dastur", "FAQ"];
+const navItems = ["Uy", "Haqimizda", "Dastur", "FAQ"];
+const NAVI_WEBSITE_URL = "https://www.naviglobal.uz/";
+const NAVI_PHONE_HREF = "tel:+998901280990";
+const NAVI_PHONE_LABEL = "90 128-09-90";
+const NAVI_INSTAGRAM_URL = "https://www.instagram.com/navi_global";
+const NAVI_TELEGRAM_URL = "https://t.me/navi_edu";
 
 const footerLinks = ["Bosh sahifa", "Haqimizda", "Dastur", "FAQ"];
 const appleButtonBase =
@@ -28,8 +33,13 @@ const navListGlassDesktop =
   "hidden items-center gap-1 rounded-full border border-white/45 bg-white/28 p-1.5 shadow-[0_8px_28px_rgba(15,23,42,0.12)] backdrop-blur-xl md:flex";
 const mobileMenuPanelGlass =
   "fixed left-4 right-4 top-[84px] z-[140] rounded-3xl border border-white/55 bg-white p-4 shadow-[0_30px_72px_rgba(24,27,36,0.32)] backdrop-blur-[200px] md:hidden";
-const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL || "").replace(/\/$/, "");
-const LEAD_API_URL = API_BASE_URL ? `${API_BASE_URL}/api/amo/lead` : "/api/amo/lead";
+const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL || "").replace(
+  /\/$/,
+  "",
+);
+const LEAD_API_URL = API_BASE_URL
+  ? `${API_BASE_URL}/api/amo/lead`
+  : "/api/amo/lead";
 const initialFormData = {
   name: "",
   age: "",
@@ -84,7 +94,10 @@ export default function NAVILanding() {
   };
 
   const scrollToForm = () => {
-    formSectionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    formSectionRef.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
   };
 
   const mapServerErrorsToFields = (errors = {}) => {
@@ -240,9 +253,9 @@ export default function NAVILanding() {
 
                 <div className={navListGlassDesktop}>
                   {navItems.map((item, i) => (
-                    <button
+                    <a
                       key={item}
-                      type="button"
+                      href={NAVI_WEBSITE_URL}
                       className={`${appleButtonBase} px-7 py-2.5 text-sm ${
                         i === 0
                           ? "bg-white/84 font-semibold text-zinc-900"
@@ -250,20 +263,23 @@ export default function NAVILanding() {
                       }`}
                     >
                       {item}
-                    </button>
+                    </a>
                   ))}
                 </div>
 
                 <div className="hidden items-center gap-3 sm:gap-4 md:flex lg:gap-5">
-                  <span className="text-sm font-semibold text-zinc-400 lg:text-[15px]">
-                    90 128-09-90
-                  </span>
-                  <button
-                    type="button"
+                  <a
+                    href={NAVI_PHONE_HREF}
+                    className="text-sm font-semibold text-zinc-400 transition hover:text-zinc-600 lg:text-[15px]"
+                  >
+                    {NAVI_PHONE_LABEL}
+                  </a>
+                  <a
+                    href={NAVI_PHONE_HREF}
                     className={`${applePrimaryButton} px-4 py-2.5 text-sm font-semibold sm:px-6 lg:px-7`}
                   >
                     Bog&apos;lanish
-                  </button>
+                  </a>
                 </div>
 
                 <button
@@ -305,7 +321,7 @@ export default function NAVILanding() {
                         {navItems.map((item) => (
                           <a
                             key={item}
-                            href="#"
+                            href={NAVI_WEBSITE_URL}
                             onClick={() => setIsMobileMenuOpen(false)}
                             className="block rounded-full px-3 py-2 text-sm font-medium text-zinc-700 transition hover:bg-white/75 hover:text-zinc-950"
                           >
@@ -314,15 +330,19 @@ export default function NAVILanding() {
                         ))}
                       </div>
                       <div className="mt-3 border-t border-white/60 pt-3">
-                        <p className="text-sm font-medium text-zinc-500">
-                          90 128-09-90
-                        </p>
-                        <button
-                          type="button"
-                          className={`${applePrimaryButton} mt-3 w-full px-4 py-2.5 text-sm font-semibold`}
+                        <a
+                          href={NAVI_PHONE_HREF}
+                          className="text-sm font-medium text-zinc-500 transition hover:text-zinc-700"
+                        >
+                          {NAVI_PHONE_LABEL}
+                        </a>
+                        <a
+                          href={NAVI_PHONE_HREF}
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className={`${applePrimaryButton} mt-3 block w-full px-4 py-2.5 text-center text-sm font-semibold`}
                         >
                           Bog&apos;lanish
-                        </button>
+                        </a>
                       </div>
                     </div>
                   </>
@@ -335,9 +355,7 @@ export default function NAVILanding() {
             <Container className="relative z-10">
               <div className="mx-auto max-w-5xl text-center">
                 <h1 className="text-balance text-[34px] font-black leading-[1.2] mb-12 pt-[50px] md:pt-0 tracking-[-0.03em] text-zinc-950 sm:text-[50px] md:text-[62px] lg:text-[72px] xl:text-[82px]">
-                  Farzandingiz kelajagi
-                  <br />
-                  o&apos;z qo&apos;lingizda!
+                  Telefon farzandingiz kelajagini boshqarmasin!
                 </h1>
 
                 <div className="mt-8 flex justify-center sm:mt-10 lg:mt-12">
@@ -375,7 +393,7 @@ export default function NAVILanding() {
             <Container className="relative z-10">
               <div className="mx-auto w-full max-w-[660px]">
                 <h2 className="mb-7 flex flex-col items-center justify-center gap-2 text-center text-[28px] font-semibold leading-[1.15] text-zinc-800 sm:mb-9 sm:text-[38px] lg:mb-10 lg:text-[42px]">
-                  Birimchi qadam BEPUL dars{" "}
+                  Birinchi qadam — bepul dars
                   <span className="text-sm font-medium text-zinc-500 sm:text-lg">
                     Joylar soni chegaralanga!
                   </span>
@@ -656,7 +674,7 @@ export default function NAVILanding() {
                       {footerLinks.map((link) => (
                         <a
                           key={link}
-                          href="#"
+                          href={NAVI_WEBSITE_URL}
                           className="text-sm text-zinc-600 transition hover:text-zinc-800"
                         >
                           {link}
@@ -665,8 +683,10 @@ export default function NAVILanding() {
                     </div>
 
                     <div className="flex gap-2 lg:mt-6">
-                      <button
-                        type="button"
+                      <a
+                        href={NAVI_INSTAGRAM_URL}
+                        target="_blank"
+                        rel="noreferrer"
                         className={appleIconButton}
                         aria-label="Instagram"
                       >
@@ -697,10 +717,12 @@ export default function NAVILanding() {
                             stroke="none"
                           />
                         </svg>
-                      </button>
+                      </a>
 
-                      <button
-                        type="button"
+                      <a
+                        href={NAVI_TELEGRAM_URL}
+                        target="_blank"
+                        rel="noreferrer"
                         className={appleIconButton}
                         aria-label="Telegram"
                       >
@@ -717,7 +739,7 @@ export default function NAVILanding() {
                           <line x1="22" y1="2" x2="11" y2="13" />
                           <polygon points="22 2 15 22 11 13 2 9 22 2" />
                         </svg>
-                      </button>
+                      </a>
                     </div>
                   </div>
                 </div>
