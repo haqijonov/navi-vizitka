@@ -1,16 +1,42 @@
-# React + Vite
+# NAVI Landing
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React + Vite frontend with amoCRM lead submission API.
 
-Currently, two official plugins are available:
+## Local run
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. Copy `.env.example` to `.env`
+2. Fill amoCRM values in `.env`
+3. Install deps:
+   - `npm install`
+4. Start frontend + local Express API:
+   - `npm run dev:full`
+5. Open:
+   - `http://localhost:5173`
 
-## React Compiler
+## Vercel deployment
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+This repo is configured for Vercel with serverless functions:
 
-## Expanding the ESLint configuration
+- `api/amo/lead.js`
+- `api/health.js`
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Steps
+
+1. Push this repo to GitHub.
+2. Import project in Vercel.
+3. In Vercel project settings, set Environment Variables:
+   - `AMO_BASE_URL`
+   - `AMO_ACCESS_TOKEN`
+   - `AMO_PIPELINE_ID`
+   - `AMO_PHONE_FIELD_ID` (optional)
+   - `AMO_PHONE_WORK_ENUM_ID` (optional)
+   - `AMO_NOTEBOOK_FIELD_ID` (optional)
+   - `AMO_AGE_FIELD_ID` (optional)
+4. Deploy.
+
+`VITE_API_BASE_URL` is optional. If empty, frontend automatically calls same-origin `/api/amo/lead` (recommended for Vercel).
+
+## Notes
+
+- `.env` is ignored by git.
+- If an access token was ever committed, rotate it in amoCRM immediately.
