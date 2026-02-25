@@ -393,9 +393,9 @@ export default function NAVILanding() {
             <Container className="relative z-10">
               <div className="mx-auto w-full max-w-[660px]">
                 <h2 className="mb-7 flex flex-col items-center justify-center gap-2 text-center text-[28px] font-semibold leading-[1.15] text-zinc-800 sm:mb-9 sm:text-[38px] lg:mb-10 lg:text-[42px]">
-                  Birinchi qadam — bepul dars
+                  Birinchi qadam — BEPUL dars
                   <span className="text-sm font-medium text-zinc-500 sm:text-lg">
-                    Joylar soni chegaralanga!
+                    Joylar soni chegaralangan!
                   </span>
                 </h2>
 
@@ -552,7 +552,7 @@ export default function NAVILanding() {
                             : ""
                         }`}
                       >
-                        Kompyuteri bormi
+                        Kompyuteri bormi?
                       </label>
                       <span className="pointer-events-none absolute right-5 top-1/2 -translate-y-1/2 text-zinc-500 sm:right-6">
                         <svg
@@ -661,11 +661,12 @@ export default function NAVILanding() {
                     />
                     <p className="mt-4 text-sm leading-6 text-zinc-600 lg:mt-5">
                       Farzandingizning kelajagini bugundan shakllantiring. Bepul
-                      diagnostika darsiga yoziing va bolangiz qaysi
+                      diagnostika darsiga yoziling va bolangiz qaysi
                       yo&apos;nalishga mosligini aniqlang.
                     </p>
                     <p className="mt-6 flex items-center justify-center gap-1 text-xs text-zinc-600 lg:mt-8 lg:justify-start">
-                      <span>♡</span> NAVI - kelajak kasblariga tayyorlov tizimi.
+                      <span>♡</span> NAVI - kelajak kasblariga tayyorlov
+                      dasturi.
                     </p>
                   </div>
 
