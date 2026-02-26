@@ -180,7 +180,7 @@ export default function NAVILanding() {
       age: Number(formData.age),
       hasComputer: formData.computer === "ha",
       phone: `+998${formData.phone}`,
-      pageUrl: window.location.href,
+      pageUrl: `${window.location.origin}${window.location.pathname}`,
       utm: getUtmParams(),
     };
 
