@@ -19,7 +19,14 @@ app.post("/api/amo/lead", async (req, res) => {
     return res.json(result);
   } catch (error) {
     const { status, body } = toHttpError(error);
-    if (status >= 500) {
+    if (body?.message === "amoCRM request failed") {
+      console.error("Lead API amoCRM error:", {
+        amoStatus: body.amoStatus,
+        amoDetail: body.amoDetail,
+        amoFirstAttemptDetail: body.amoFirstAttemptDetail,
+        amoRetryTried: body.amoRetryTried,
+      });
+    } else if (status >= 500) {
       console.error("Lead API error:", error.message);
     }
     return res.status(status).json(body);

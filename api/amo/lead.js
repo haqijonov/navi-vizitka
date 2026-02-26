@@ -14,7 +14,14 @@ export default async function handler(req, res) {
     return res.status(200).json(result);
   } catch (error) {
     const { status, body } = toHttpError(error);
-    if (status >= 500) {
+    if (body?.message === "amoCRM request failed") {
+      console.error("Vercel lead API amoCRM error:", {
+        amoStatus: body.amoStatus,
+        amoDetail: body.amoDetail,
+        amoFirstAttemptDetail: body.amoFirstAttemptDetail,
+        amoRetryTried: body.amoRetryTried,
+      });
+    } else if (status >= 500) {
       console.error("Vercel lead API error:", error.message);
     }
     return res.status(status).json(body);
