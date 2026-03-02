@@ -58,6 +58,7 @@ export default function NAVILanding() {
     type: "idle",
     message: "",
   });
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const clearSubmitState = () => {
     setSubmitState((prev) => {
@@ -245,11 +246,33 @@ export default function NAVILanding() {
               <nav
                 className={`relative flex h-[62px] items-center justify-between gap-3 px-3 sm:h-[66px] sm:px-4 md:h-[74px] md:px-0 lg:h-20 xl:h-24 ${headerGlassMobileOnly}`}
               >
-                <img
-                  src="/Logo.svg"
-                  alt="NAVI logo"
-                  className="h-4 w-auto sm:h-9"
-                />
+                <a
+                  href="#"
+                  className="group rounded-2xl px-1 py-1 text-foreground transition-all duration-500 hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                  aria-label="NAVI - Bosh sahifa"
+                >
+                  <div className="flex  items-center">
+                    <img
+                      className={`transition-all duration-500 ${
+                        isScrolled
+                          ? "w-[108px] md:w-[116px]"
+                          : "w-[120px] md:w-[128px]"
+                      }`}
+                      src="/main-logo.png"
+                      alt="NAVI logo"
+                    />
+                    <span
+                      className={` inline-flex max-w-[200px] rounded-full  text-[#0043ff]  transition-all duration-500 leading-tight font-medium ${
+                        isScrolled
+                          ? "px-2 py-0.5 text-[8px] md:px-2.5 md:text-[14px]"
+                          : "px-2.5 py-1 text-[9px] md:text-[14px]"
+                      }`}
+                    >
+                      IT va sun&apos;iy intellekt bo&apos;yicha mentorlik
+                      markazi
+                    </span>
+                  </div>
+                </a>
 
                 <div className={navListGlassDesktop}>
                   {navItems.map((item, i) => (
@@ -364,7 +387,7 @@ export default function NAVILanding() {
                     onClick={scrollToForm}
                     className={`${applePrimaryButton} w-full max-w-[320px] px-8 py-3.5 text-[15px] font-bold sm:w-auto sm:px-12 sm:py-[18px] md:text-[17px] lg:px-16 lg:py-5`}
                   >
-                    Bepul darsga yozilish
+                    BEPUL darsga yoziling!
                   </button>
                 </div>
               </div>
@@ -660,13 +683,12 @@ export default function NAVILanding() {
                       className="mx-auto h-8 w-auto lg:mx-0"
                     />
                     <p className="mt-4 text-sm leading-6 text-zinc-600 lg:mt-5">
-                      Farzandingizning kelajagini bugundan shakllantiring. Bepul
-                      diagnostika darsiga yoziling va bolangiz qaysi
-                      yo&apos;nalishga mosligini aniqlang.
+                      Biz telefon qaramligini foydali ko‘nikmalar, real
+                      loyihalar va aniq yo‘nalishga aylantiramiz.
                     </p>
                     <p className="mt-6 flex items-center justify-center gap-1 text-xs text-zinc-600 lg:mt-8 lg:justify-start">
-                      <span>♡</span> NAVI - kelajak kasblariga tayyorlov
-                      dasturi.
+                      <span>♡</span> NAVI - kelajakka tayyorlaydigan
+                      ustoz-shogirt dasturi.
                     </p>
                   </div>
 
